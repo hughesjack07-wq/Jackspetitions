@@ -1,4 +1,4 @@
-package com.example.yourname; // Ensure this matches your package name
+package jackspetitions; // Ensure this matches your package name
 
 import java.util.ArrayList;
 import java.util.List;
