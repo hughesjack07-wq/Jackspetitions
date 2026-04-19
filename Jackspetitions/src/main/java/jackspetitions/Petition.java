@@ -1,4 +1,4 @@
-package jackspetitions; // Ensure this matches your package name
+package jackspetitions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,6 @@ public class Petition {
         this.signatures = new ArrayList<>();
     }
 
-    // Getters and Setters
     public int getId() { return id; }
     public String getTitle() { return title; }
     public String getDescription() { return description; }

@@ -11,14 +11,14 @@ import java.util.stream.Collectors;
 @Controller
 public class PetitionController {
 
-    // In-memory list to store petitions (no database needed as per Req 1)
+    // In-memory list to store petitions
     private List<Petition> petitions = new ArrayList<>();
     private int nextId = 1;
 
     public PetitionController() {
-        // Sample data for the start (as per Req 2)
-        petitions.add(new Petition(nextId++, "Save the Local Park", "We need to stop the construction of the mall."));
-        petitions.add(new Petition(nextId++, "Better Public Transport", "More buses needed for the suburb area."));
+        // Sample data for the start
+        petitions.add(new Petition(nextId++, "Save the Local Park", "We need to stop the construction of the motorway."));
+        petitions.add(new Petition(nextId++, "Better Public Transport", "More buses needed for the countryside."));
     }
 
     // 1. View All Petitions
