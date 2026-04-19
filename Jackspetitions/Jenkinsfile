@@ -9,12 +9,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'cd Jackspetitions && chmod +x mvnw && ./mvnw clean package -DskipTests'
+                sh 'cd Jackspetitions && chmod +x mvnw && JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64 ./mvnw clean package -DskipTests'
             }
         }
         stage('Test') {
             steps {
-                sh 'cd Jackspetitions && ./mvnw test'
+                sh 'cd Jackspetitions && JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64 ./mvnw test'
             }
         }
         stage('Package & Archive') {
