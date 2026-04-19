@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Get Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/hughesjack07-wq/Jackspetitions.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'cd Jackspetitions && chmod +x mvnw && ./mvnw clean package -DskipTests'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'cd Jackspetitions && ./mvnw test'
+            }
+        }
+        stage('Package & Archive') {
+            steps {
+                archiveArtifacts artifacts: 'Jackspetitions/target/jackspetitions.war', fingerprint: true
+            }
+        }
+        stage('Deploy') {
+            steps {
+                input message: 'Deploy to production?', ok: 'Yes, deploy!'
+                echo 'Deploying...'
+                // Deployment steps will go here once EC2 is set up
+            }
+        }
+    }
+}
