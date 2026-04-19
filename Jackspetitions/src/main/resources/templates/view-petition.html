@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="${petition.title}">View Petition</title>
 </head>
 <body>
+<h1 th:text="${petition.title}"></h1>
+<p th:text="${petition.description}"></p>
 
+<h3>Signatures</h3>
+<ul>
+    <li th:each="signature : ${petition.signatures}" th:text="${signature}"></li>
+</ul>
+<p th:if="${#lists.isEmpty(petition.signatures)}">No signatures yet.</p>
+
+<h3>Sign this Petition</h3>
+<form th:action="@{/sign/{id}(id=${petition.id})}" method="post">
+    <label>Your Name:</label><br>
+    <input type="text" name="name" required><br><br>
+    <button type="submit">Sign Petition</button>
+</form>
+
+<br>
+<a th:href="@{/}">Back to List</a>
 </body>
 </html>

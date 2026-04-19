@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>Search for a Petition</h1>
-<form action="/search" method="get">
+<form th:action="@{/search}" method="get">
     <input type="text" name="query" placeholder="Enter petition title...">
     <button type="submit">Search</button>
 </form>
@@ -19,6 +19,6 @@
     </ul>
 </div>
 <br>
-<a href="/">Back to List</a>
+<a th:href="@{/}">Back to List</a>
 </body>
 </html>
